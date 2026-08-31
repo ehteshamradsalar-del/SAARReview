@@ -1,0 +1,268 @@
+@import '@fontsource-variable/inter/400.css';
+@import '@fontsource-variable/inter/500.css';
+@import '@fontsource-variable/inter/600.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+@import '@fontsource/noto-kufi-arabic/400.css';
+@import '@fontsource/noto-kufi-arabic/500.css';
+@import '@fontsource/noto-kufi-arabic/600.css';
+@import '@fontsource/noto-kufi-arabic/700.css';
+@import '@fontsource/noto-naskh-arabic/400.css';
+@import '@fontsource/noto-naskh-arabic/500.css';
+@import '@fontsource/vazirmatn/400.css';
+@import '@fontsource/vazirmatn/500.css';
+@import '@fontsource/vazirmatn/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-offwhite: #F3F2EE;
+
+  /* Secondary */
+  --color-gray-light: #E8E6E0;
+  --color-gray-muted: #777777;
+
+  /* Semantic aliases */
+  --color-bg: var(--color-offwhite);
+  --color-bg-inverse: var(--color-black);
+  --color-text-primary: var(--color-black);
+  --color-text-secondary: var(--color-gray-muted);
+  --color-text-inverse: var(--color-white);
+  --color-border: var(--color-gray-light);
+  --color-border-strong: var(--color-black);
+
+  /* Spacing */
+  --content-max-width: 1600px;
+  --gutter-desktop: 28px;
+  --gutter-mobile: 18px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --space-8: 140px;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 350ms;
+
+  /* Borders */
+  --border-hairline: 1px solid var(--color-border);
+  --border-hairline-strong: 1px solid var(--color-border-strong);
+}
+
+/* English type tokens */
+html[lang="en"] {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter Variable', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --tracking-meta: 0.08em;
+  --text-display: 88px;
+  --text-h1: 44px;
+  --text-h2: 42px;
+  --text-body: 17px;
+  --text-meta: 12px;
+  --lh-display: 1.05;
+  --lh-h1: 1.1;
+  --lh-h2: 1.15;
+  --lh-body: 1.6;
+  --lh-meta: 1.3;
+  --max-measure: 68ch;
+}
+
+/* Farsi type tokens */
+html[lang="fa"] {
+  --font-display: 'Noto Kufi Arabic', 'Vazirmatn', serif;
+  --font-body: 'Noto Naskh Arabic', 'Vazirmatn', Tahoma, sans-serif;
+  --font-meta: 'Vazirmatn', 'Noto Naskh Arabic', Tahoma, sans-serif;
+  --tracking-meta: 0em;
+  --text-display: 72px;
+  --text-h1: 38px;
+  --text-h2: 34px;
+  --text-body: 18px;
+  --text-meta: 13px;
+  --lh-display: 1.4;
+  --lh-h1: 1.4;
+  --lh-h2: 1.45;
+  --lh-body: 1.9;
+  --lh-meta: 1.4;
+  --max-measure: 58ch;
+}
+
+html[lang="en"] { direction: ltr; }
+html[lang="fa"] { direction: rtl; }
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  ::selection {
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .font-meta { font-family: var(--font-meta, var(--font-body)); }
+
+  .text-display {
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+    font-weight: 500;
+  }
+  html[lang="fa"] .text-display { font-weight: 600; }
+
+  .text-h1 {
+    font-size: var(--text-h1);
+    line-height: var(--lh-h1);
+    font-weight: 500;
+  }
+  html[lang="fa"] .text-h1 { font-weight: 600; }
+
+  .text-h2 {
+    font-size: var(--text-h2);
+    line-height: var(--lh-h2);
+    font-weight: 500;
+  }
+  html[lang="fa"] .text-h2 { font-weight: 500; }
+
+  .text-body {
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+  }
+
+  .text-meta {
+    font-size: var(--text-meta);
+    line-height: var(--lh-meta);
+    font-weight: 500;
+    letter-spacing: var(--tracking-meta);
+  }
+  html[lang="fa"] .text-meta { text-transform: none; }
+  html[lang="en"] .text-meta { text-transform: uppercase; }
+
+  .tracking-meta { letter-spacing: var(--tracking-meta); }
+
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-inverse { color: var(--color-text-inverse); }
+  .text-primary { color: var(--color-text-primary); }
+
+  .bg-paper { background-color: var(--color-bg); }
+  .bg-white-paper { background-color: var(--color-white); }
+  .bg-inverse { background-color: var(--color-bg-inverse); }
+
+  .border-hairline { border: 1px solid var(--color-border); }
+  .border-b-hairline { border-bottom: 1px solid var(--color-border); }
+  .border-t-hairline { border-top: 1px solid var(--color-border); }
+  .border-l-hairline { border-left: 1px solid var(--color-border); }
+  .border-r-hairline { border-right: 1px solid var(--color-border); }
+  .border-strong { border: 1px solid var(--color-border-strong); }
+  .border-b-strong { border-bottom: 1px solid var(--color-border-strong); }
+  .border-t-strong { border-top: 1px solid var(--color-border-strong); }
+
+  .max-measure { max-width: var(--max-measure); }
+  .content-max { max-width: var(--content-max-width); }
+
+  .ease-editorial { transition-timing-function: var(--ease-editorial); }
+  .duration-fast { transition-duration: var(--duration-fast); }
+  .duration-base { transition-duration: var(--duration-base); }
+  .duration-slow { transition-duration: var(--duration-slow); }
+
+  .hover-img-zoom {
+    overflow: hidden;
+  }
+  .hover-img-zoom img {
+    transition: transform var(--duration-base) var(--ease-editorial);
+  }
+  .hover-img-zoom:hover img {
+    transform: scale(1.03);
+  }
+
+  .hover-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--duration-base) var(--ease-editorial);
+  }
+  .hover-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: pageFade var(--duration-base) var(--ease-editorial);
+}
+
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mega menu animation */
+.mega-menu-enter {
+  animation: megaFade var(--duration-base) var(--ease-editorial);
+}
+
+@keyframes megaFade {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  animation: mobileSlide var(--duration-slow) var(--ease-editorial);
+}
+
+@keyframes mobileSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Search overlay animation */
+.search-enter {
+  animation: searchFade var(--duration-base) var(--ease-editorial);
+}
+
+@keyframes searchFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hero slide transition */
+.hero-slide-enter {
+  animation: heroFade var(--duration-slow) var(--ease-editorial);
+}
+
+@keyframes heroFade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
